@@ -23,10 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ho*xjs@8t3erwh8%9w7w22mrw!q&xh6hb81&wo+5!(qzz$42xi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
-
+ALLOWED_HOSTS = ['adjourn.pythonanywhere.com']
 
 # Application definition
 
