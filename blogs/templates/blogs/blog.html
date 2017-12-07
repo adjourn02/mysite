@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Lost Juanderer | travel & leisure</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'blogs/blog.css' %}" />
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="http://www.jasny.net/bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+  <!-- Glyphicon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" id="sidebar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body" style="border:transparent; background:transparent;">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Lost Juanderer</a>
+      </div>
+      <div class="navmenu-fixed-left navbar-offcanvas offcanvas" role="navigation">
+        <ul class="navbar-header navbar-right">
+          <a href="#" class="nav-glyph"><span class="fa fa-pinterest-square"></span></a>
+          <a href="#" class="nav-glyph"><span class="fa fa-envelope-o"></span></a>
+          <a href="#" class="nav-glyph"><span class="fa fa-facebook-official"></span></a>
+          <a href="#" class="nav-glyph"><span class="fa fa-instagram"></span></a>
+          <a href="#" class="nav-glyph"><span class="fa fa-twitter-square"></span></a>
+          <div class="divider"></div>
+        </ul>
+        <ul class="nav navbar-nav navbar-center">
+          <li><a href="{% url 'blogs:index' %}" id="navHeader">HOME</a></li>
+          <li class="dropdown hidden-xs">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="navHeader" role="button">DESTINATIONS <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {% for place in places %}
+                <li><a href="{% url 'blogs:blog' place.id %}">{{ place.place_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="#contact" class="hidden-xs" id="navHeader">CONTACT</a></li>
+          <li class="dropdown visible-xs">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="navHeader" role="button">DESTINATIONS <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {% for place in places %}
+                <li><a href="{% url 'blogs:blog' place.id %}">{{ place.place_name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      {% if posts %}
+        {% for post in posts %}
+            <img class="img-responsive img" id="headerimg" src="{{ post.photo.url }}" alt="post.description">
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div><br>
+  <div class="container-fluid postcontainer">
+    <div class="row-fluid postrow">
+      {% if posts %}
+        {% for post in posts %}
+          {% if post.content %}
+            <div class="ckcontent">{{ post.content|safe }}</div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div><br>
+  <footer class="container-fluid footercontainer">
+    <a name="contact">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 contact-col">
+        <a href="#"><span class="fa fa-pinterest-square" id="contactglyph"></span><span class="visible-lg-inline-block">pinterest.com/lostjuanderer</span></a>
+        <a href="#"><span class="fa fa-envelope-o" id="contactglyph"></span><span class="visible-lg-inline-block">lostjuanderer@gmail.com</span></a>
+        <a href="#"><span class="fa fa-facebook-official" id="contactglyph"></span><span class="visible-lg-inline-block">facebook.com/lostjuanderer</span></a>
+        <a href="#"><span class="fa fa-instagram" id="contactglyph"></span><span class="visible-lg-inline-block">instagram.com/lostjuanderer</span></a>
+        <a href="#"><span class="fa fa-twitter-square" id="contactglyph"></span><span class="visible-lg-inline-block">twitter.com/lostjuanderer</span></a>
+      </div>
+    </div>
+    </a>
+    <div class="row">
+      <hr><p class="footerinfo">&copy;2017 Lost Juanderer - All Rights Reserved</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://www.jasny.net/bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+  <!-- Navbar scroll effect -->
+  <script>
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $(".navbar-fixed-top");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      });
+    });
+  </script>
+  <!-- add img-responsive class to ck-editor images -->
+  <script>
+    $(function () {
+      $(document).ready(function () {
+        $("img").addClass("img-responsive")
+      });
+    });
+  </script>
+</body>
+</html>
