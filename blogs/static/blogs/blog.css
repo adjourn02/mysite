@@ -125,10 +125,6 @@
       .navmenu, .navbar-offcanvas {
         width: 250px !important;
       }
-      #sidebar-toggle {
-        float:left !important;
-        margin-left: 10px;
-      }
       .navbar-right {
         position:relative;
         right:20px;
