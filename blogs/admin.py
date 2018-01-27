@@ -9,7 +9,9 @@ from .models import Country, Place, Post
 class PostInline(NestedStackedInline):
     model = Post
     classes = ['collapse']
-    extra = 0
+    extra = 1
+
+    prepopulated_fields = {'slug': ('title',), }
 
     list_filter = ['pub_date']
 

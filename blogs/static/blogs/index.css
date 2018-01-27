@@ -30,7 +30,7 @@
       background-color: white !important;
     }
     button:hover {
-      background-color: #ffcc66 !important;
+      /*background-color: #ffcc66 !important;*/
     }
     .navbar-brand:hover {
       /*color: #ffcc66 !important;*/
@@ -66,7 +66,7 @@
 	.aboutcol {
 	  padding: 0px !important;
 	  margin: 0px !important;
-	  border-top: 1px solid #F5F5F5;
+	  /*border-top: 1px solid #F5F5F5;*/
 	}
     @media (min-width: 768px) {
       .dropdown-menu > li > a:hover {
@@ -99,7 +99,7 @@
 	    margin-top:25px !important;
 	  }
       .aboutrow {
-        background-image: url('images/taprhun.JPG');
+        background-image: url('images/lakemead.jpg');
         background-size: cover;
         background-position: center;
         margin: 25px !important;
@@ -182,6 +182,10 @@
       .navmenu, .navbar-offcanvas {
         width: 250px !important;
       }
+      #sidebar-toggle {
+        /*float:left !important;
+        margin-left: 10px;*/
+      }
       .navbar-right {
         position:relative;
         right:20px;
@@ -229,7 +233,7 @@
 	    padding: 0px !important;
 	  }
       .aboutrow {
-        background-image: url('images/taprhun.JPG');
+        background-image: url('images/lakemead.jpg');
         background-size: cover;
         background-position: center;
         margin: 0px !important;

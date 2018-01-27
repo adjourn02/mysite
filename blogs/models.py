@@ -2,6 +2,7 @@ from django.db import models
 import sys
 sys.path.append('..')
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 
 class Country(models.Model):
     country_name = models.CharField(max_length=20)
@@ -22,6 +23,7 @@ class Place(models.Model):
 class Post(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
     content = RichTextUploadingField(blank=True)
     photo = models.ImageField(upload_to='blogs/images', blank=True, null=True)
     description = models.TextField(blank=True)
