@@ -49,5 +49,7 @@ def contact(request):
                 return HttpResponse('Invalid header found.')
             form = ContactForm()
             return render(request, 'blogs/contact.html', {'latest':latest,'form': form,'flash': "email sent successfully!",})
+        else:
+            return render(request, 'blogs/contact.html', {'latest': latest, 'form': form, 'flash': "some fields are incomplete or incorrect",})			
 
     return render(request, 'blogs/contact.html', {'latest':latest,'form': form,})
