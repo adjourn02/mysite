@@ -10,7 +10,7 @@ from .models import Country, Place, Post
 
 def index(request):
     context = {
-        'latest': Post.objects.order_by("-pub_date")[:3],
+        'latest': Post.objects.order_by("-pub_date")[:4],
         'popular': Post.objects.filter(popular=True),
         'featured': Post.objects.filter(featured=True),
     }
@@ -24,7 +24,7 @@ def blog(request, post_slug):
     except Post.DoesNotExist:
         next_post = Post.objects.get(id=p.id-1)
     context = {
-        'latest': Post.objects.order_by("-pub_date")[:3],
+        'latest': Post.objects.order_by("-pub_date")[:4],
         'post': p,
         'post_slug': p.slug,
         'next_post': next_post,
@@ -33,7 +33,7 @@ def blog(request, post_slug):
     return render(request, 'blogs/blog.html', context)
 
 def contact(request):
-    latest = Post.objects.order_by("-pub_date")[:3]
+    latest = Post.objects.order_by("-pub_date")[:4]
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -50,6 +50,6 @@ def contact(request):
             form = ContactForm()
             return render(request, 'blogs/contact.html', {'latest':latest,'form': form,'flash': "email sent successfully!",})
         else:
-            return render(request, 'blogs/contact.html', {'latest': latest, 'form': form, 'flash': "some fields are incomplete or incorrect",})			
+            return render(request, 'blogs/contact.html', {'latest': latest, 'form': form, 'flash': "some fields are incomplete or incorrect",})
 
     return render(request, 'blogs/contact.html', {'latest':latest,'form': form,})

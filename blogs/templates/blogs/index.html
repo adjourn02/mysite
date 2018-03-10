@@ -117,7 +117,7 @@
           </div>
           <div class="row-fluid equal">
                 {% for post in latest %}
-                    <div class="col-xs-12 col-md-4 catPost equal">
+                    <div class="col-xs-12 col-md-3 catPost equal">
                       <div class="imgPost">
                         <div><a href="{% url 'blogs:blog' post.slug %}"><img class="img-responsive" src="{{ post.photo.url }}" alt="image.description"></a></div>
                         <div class="imgDesc"><p> {{ post.description|safe }}</p></div>
