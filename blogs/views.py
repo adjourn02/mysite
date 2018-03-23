@@ -10,9 +10,10 @@ from .models import Country, Place, Post
 
 def index(request):
     context = {
-        'latest': Post.objects.order_by("-pub_date")[:4],
+        'latest': Post.objects.order_by("-pub_date")[:3],
         'popular': Post.objects.filter(popular=True),
         'featured': Post.objects.filter(featured=True),
+        'top': Post.objects.order_by("-pub_date")[:5],
     }
 
     return render(request, 'blogs/index.html', context)
@@ -24,7 +25,7 @@ def blog(request, post_slug):
     except Post.DoesNotExist:
         next_post = Post.objects.get(id=p.id-1)
     context = {
-        'latest': Post.objects.order_by("-pub_date")[:4],
+        'latest': Post.objects.order_by("-pub_date")[:5],
         'post': p,
         'post_slug': p.slug,
         'next_post': next_post,
@@ -33,7 +34,7 @@ def blog(request, post_slug):
     return render(request, 'blogs/blog.html', context)
 
 def contact(request):
-    latest = Post.objects.order_by("-pub_date")[:4]
+    latest = Post.objects.order_by("-pub_date")[:5]
     if request.method == 'GET':
         form = ContactForm()
     else:
