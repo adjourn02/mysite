@@ -203,8 +203,13 @@ $ scp -i <path/to/PEM file> ubuntu@<remote/server/public DNS>:~/<filename> .
 ```
 * if file to be transferred is a directory, include ```-r``` to above command
 
-# Django admin
-Password reset
+# Django admin password reset
+1. On AWS instance, activate virtual environment:
+```
+$ ls mysite
+$ source websiteenv/bin/activate
+```
+2. Reset password:
 ```
 $ python manage.py changepassword <username>
 ```
