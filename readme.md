@@ -174,7 +174,7 @@ $ sudo systemctl restart nginx
 ```
 
 ## Connect AWS instance to Godaddy
-1. Copy the IP address of the AWS instance to DNS MANAGEMENT - Type A - Value <IP>(18.136.120.131)
+1. Copy the IP address of the AWS instance to DNS Management
 ```
 Type | Name |     Value      | TTL
  A   |  @   | 18.136.120.131 | 600 
