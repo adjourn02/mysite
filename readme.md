@@ -1,4 +1,4 @@
-# Add Changes
+# Add changes
 
 ## AWS instance
 1. Activate virtual environment:
