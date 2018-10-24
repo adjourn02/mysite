@@ -19,7 +19,7 @@ $ python manage.py collectstatic
 ```
 $ deactivate
 ```
-5. If you make changes to the /etc/systemd/system/gunicorn.service file, reload the daemon to reread the service definition and restart the Gunicorn process by typing:
+5. Reload Gunicorn
 ```
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart gunicorn
@@ -122,6 +122,11 @@ WantedBy=multi-user.target
 ```
 $ sudo systemctl start gunicorn
 $ sudo systemctl enable gunicorn
+```
+&nbsp;&nbsp;&nbsp;&nbsp;If you make changes to the /etc/systemd/system/gunicorn.service file, reload the daemon to reread the service definition and restart the Gunicorn process by typing:
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart gunicorn
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;Check status:
 ```
