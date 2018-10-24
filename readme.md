@@ -182,8 +182,8 @@ Type | Name |     Value      | TTL
     
 ## Enable Django to send emails
 * Followed this [thread](https://stackoverflow.com/questions/35659172/django-send-mail-from-ec2-via-gmail-gives-smtpauthenticationerror-but-works)
-1. Unlock captcha: accounts.google.com/displayunlockcaptcha
-2. On AWS instance restart Gunicorn and Nginx:
+1. Unlock captcha: https://accounts.google.com/displayunlockcaptcha
+2. On AWS instance, restart Gunicorn and Nginx:
 ```
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart gunicorn
