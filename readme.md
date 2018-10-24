@@ -1,3 +1,34 @@
+# Add Changes
+
+## AWS instance
+1. Activate virtual environment:
+```
+$ ls mysite
+$ source websiteenv/bin/activate
+```
+2. Migrate changes:
+```
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+3. Collect static content:
+```
+$ python manage.py collectstatic
+```
+4. Deactivate virtual environment:
+```
+$ deactivate
+```
+5. If you make changes to the /etc/systemd/system/gunicorn.service file, reload the daemon to reread the service definition and restart the Gunicorn process by typing:
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart gunicorn
+```
+6. Restart Nginx:
+```
+$ sudo systemctl restart nginx
+```
+
 # Deployment
 
 ## AWS instance
@@ -10,6 +41,8 @@ Instantiate remote server
 HTTP TCP 80 0.0.0.0/0
 HTTP TCP 80 ::/0
 SSH TCP 22 0.0.0.0/0
+SMTP TCP 25 ::/0
+SMTP TCP 25 0.0.0.0/0
 ```
 
 Connect to remote server
@@ -94,11 +127,6 @@ $ sudo systemctl enable gunicorn
 ```
 $ sudo systemctl status gunicorn
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;If you make changes to the /etc/systemd/system/gunicorn.service file, reload the daemon to reread the service definition and restart the Gunicorn process by typing:
-```
-$ sudo systemctl daemon-reload
-$ sudo systemctl restart gunicorn
-```
 13. Start by creating and opening a new server block in Nginx's sites-available directory:
 ```
 $ sudo vim /etc/nginx/sites-available/mysite
@@ -139,14 +167,23 @@ $ sudo nginx -t
 ```
 $ sudo systemctl restart nginx
 ```
-17. Finally, we need to open up our firewall to normal traffic on port 80. Since we no longer need access to the development server, we can remove the rule to open port 8000 as well:
-```
-$ sudo ufw delete allow 8000
-$ sudo ufw allow 'Nginx Full'
-```
 
 ## Connect AWS instance to Godaddy
-1. Copy the IP address of the AWS instance to DNS MANAGEMENT - Type A - Value <IP>(54.251.186.44)
+1. Copy the IP address of the AWS instance to DNS MANAGEMENT - Type A - Value <IP>(18.136.120.131)
+```
+Type | Name |     Value      | TTL
+ A   |  @   | 18.136.120.131 | 600 
+```
+    
+## Enable Django to send emails
+* Followed this [thread](https://stackoverflow.com/questions/35659172/django-send-mail-from-ec2-via-gmail-gives-smtpauthenticationerror-but-works)
+1. Unlock captcha: accounts.google.com/displayunlockcaptcha
+2. On AWS instance restart Gunicorn and Nginx:
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart gunicorn
+$ sudo systemctl restart nginx
+```
 
 # File transfer
 * Refer [here](https://angus.readthedocs.io/en/2014/amazon/transfer-files-between-instance.html)
