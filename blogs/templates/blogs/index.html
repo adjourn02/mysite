@@ -40,7 +40,7 @@
           <div class="divider"></div>
         </ul>
         <ul class="nav navbar-nav navbar-center">
-          <li><a href="#" id="navHeader">HOME</a></li>
+          <li><a href="{% url 'blogs:index' %}" id="navHeader">HOME</a></li>
           <li class="dropdown hidden-xs">
             <a class="dropdown-toggle" data-toggle="dropdown" id="navHeader" role="button">DESTINATIONS <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -53,7 +53,7 @@
           <li class="dropdown visible-xs">
             <a class="dropdown-toggle" data-toggle="dropdown" id="navHeader" role="button">DESTINATIONS <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              {% for post in latest %}
+              {% for post in top %}
                   <li><a href="{% url 'blogs:blog' post.slug %}">{{ post.place }}</a></li>
               {% endfor %}
             </ul>
@@ -98,7 +98,7 @@
             Welcome, Lost Juanderer!
           </p>
           <p class="aboutinfo">
-            We’re DJ and Irina, your travel guides. Both at the age of 23, working hard and at the same time traveling
+            I'm DJ, your travel guide. At the age of 29, working hard and at the same time traveling
             as much as we can. For life is too short not to see and experience natural and man-made wonders. However,
             traveling may cost beyond your budget that you would consider giving up your dream vacation. But don't worry
             because that's where we come in. Our mission is to help you plan out your trip, limit your expenses, and

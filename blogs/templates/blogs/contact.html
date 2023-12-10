@@ -11,7 +11,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
   <!-- custom stylesheet -->
-  <link rel="stylesheet" type="text/css" href="{% static 'blogs/contact.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'blogs/blog.css' %}" />
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="http://www.jasny.net/bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body" style="border:transparent; background:transparent;">
@@ -65,7 +65,7 @@
   <div class="container-fluid postcontainer">
     <div class="row-fluid postrow">
       <div class="col-xs-12 col-sm-12 col-md-8" style="text-align:center;">
-        <div class="contactheader">we want to hear from you!</div>
+        <div class="contactheader" style="font-size:120%; font-weight: 600"><br>we want to hear from you!</div>
         {% if flash %}
           <div class="flash">{{ flash }}</div>
         {% endif %}

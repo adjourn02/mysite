@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ho*xjs@8t3erwh8%9w7w22mrw!q&xh6hb81&wo+5!(qzz$42xi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.lostjuanderer.com']
+ALLOWED_HOSTS = ["http://127.0.0.1:8000", '127.0.0.1']
 
 # Application definition
 
