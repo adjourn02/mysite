@@ -1,4 +1,6 @@
-# Check my website on: https://adjourn.pythonanywhere.com/
+# [Travel Blog](https://adjourn.pythonanywhere.com/)
+
+## Built my personal travel website using Django framework. Check my website on https://adjourn.pythonanywhere.com/.
 
 # Add changes
 
