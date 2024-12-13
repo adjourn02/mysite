@@ -3,7 +3,8 @@
 
 ## Landing page
 ![index](index.png)
-![index2](index2.png)
+![content](content.png)
 
 ## Sample Content
-![content](content.png)
+![index2](index2.png)
+
